@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#000000">
+<title>Room in a Window</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": {
+  "three": "./vendor/three/build/three.module.js",
+  "three/addons/": "./vendor/three/examples/jsm/",
+  "@sparkjsdev/spark": "./vendor/@sparkjsdev/spark/dist/spark.module.js",
+  "@mediapipe/tasks-vision": "./vendor/@mediapipe/tasks-vision/vision_bundle.mjs"
+} }
+</script>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="frame"></div>
+
+<div id="top">
+  <div id="chip"><span id="chipName">Original</span><span id="chipSub">as captured</span></div>
+  <div id="dots"></div>
+</div>
+
+<div id="bottom">
+  <button id="mode" type="button" aria-label="Tracking mode"><i></i><span>Drag</span></button>
+  <div id="hint">Move your head — the room stays put.</div>
+  <button id="recenter" type="button" aria-label="Recenter">Recenter</button>
+</div>
+
+<div id="loader"><div class="ring"></div><div id="loadTxt">Loading room… 0%</div></div>
+
+<div id="start" class="hidden">
+  <div class="card">
+    <div class="title">Room in a Window</div>
+    <div class="sub">A live 3D scan behind your screen. Your front camera follows your head so the room moves like a real window. Nothing is recorded or uploaded.</div>
+    <button id="go" type="button">Step in</button>
+    <button id="nocam" type="button" class="ghost">Use tilt instead</button>
+  </div>
+</div>
+<video id="cam" playsinline muted autoplay></video>
+<script type="module" src="app.js"></script>
+</body>
+</html>
